@@ -55,7 +55,7 @@
                     <ul class="nav child_menu">
                       <li><a href="index.html">Katalog Buku</a></li>
                       <li><a href="index2.html">Master Buku</a></li>
-                      <li><a href="index3.html">Peminjaman</a></li>
+                      <li><a href="index3.html">Peminjaman</a></li> 
                     </ul>
                   </li>
                 </ul>
