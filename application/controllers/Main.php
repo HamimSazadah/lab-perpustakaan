@@ -7,11 +7,11 @@ class Main extends CI_Controller {
 		$this->load->model('perpus_model');
 		$data['judul'] = $page;
 		switch($page){
-		  case 'master_buku' : 
-			//var_dump($_POST);
+			case 'master_buku' : 
 			if(!empty($_POST)){
                 $this->perpus_model->saveBuku($_POST);
 			}
+			$data['buku'] = $this->perpus_model->getAllBuku();
 		    break;
 		}
 

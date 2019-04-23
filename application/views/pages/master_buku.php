@@ -34,7 +34,6 @@
     </div>
 </div>
 
-
 <div class="row">
     <div class="col-md-12">
         <div class="x_panel"> 
@@ -49,12 +48,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>234</td>
-                    <td>234</td>
-                    <td>234</td>
-                </tr>
+                <?php
+foreach($buku as $b){
+    echo "<tr>
+        <td>$b[id]</td>
+        <td>$b[judul]</td>
+        <td>$b[pengarang]</td>
+        <td>$b[tahun]</td>
+    </tr>";
+}
+                ?>
             </tbody>
         </table>
         </div>
