@@ -13,5 +13,16 @@ class perpus_model extends CI_Model {
         $query = $this->db->query("SELECT * FROM masterbuku;");
         return $query->result_array();
     }
+
+    public function getBuku($id)
+    {
+        $query = $this->db->query("SELECT * FROM masterbuku where id=?;",array($id));
+        return $query->row();
+    }
+
+    public function updateBuku($data)
+    {
+        $this->db->query("update masterbuku set judul=?,pengarang=?,tahun=?where id=?",array($data['judul'],$data['pengarang'],$data['tahun'],$data['id']));
+    }
 }
 ?>

@@ -8,10 +8,20 @@ class Main extends CI_Controller {
 		$data['judul'] = $page;
 		switch($page){
 			case 'master_buku' : 
-			if(!empty($_POST)){
+			if(!empty($_POST) && empty($_GET)){
                 $this->perpus_model->saveBuku($_POST);
 			}
 			$data['buku'] = $this->perpus_model->getAllBuku();
+			if(!empty($_GET['act'])){
+				switch($_GET['act']){
+					case 'edit' :
+						$data['edit'] =  $this->perpus_model->getBuku($_GET['id']);
+						break;
+					case 'update' :
+						$this->perpus_model->updateBuku($_POST);
+						redirect(base_url().'index.php/main/index/master_buku');
+				}
+			}
 		    break;
 		}
 

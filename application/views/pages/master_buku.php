@@ -4,26 +4,27 @@
     <div class="col-md-12">
         <div class="x_panel"> 
         <h2>Master Buku</h2>
-<form class='form-horizontal' action='' method="POST">
+<form class='form-horizontal' action='<?=isset($edit)?base_url().'index.php/main/index/master_buku?act=update':''?>' method="POST">
+<?=isset($edit)?"<input type='hidden' name='id' value='$edit->id'>":''?>
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Judul Buku
             </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-    <input type="text" id="first-name" name='judul' required="required" class="form-control col-md-7 col-xs-12">
+    <input type="text" id="first-name" name='judul' required="required" value="<?=isset($edit->judul)?$edit->judul:''?>" class="form-control col-md-7 col-xs-12">
         </div>
     </div>
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Pengarang
             </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-    <input type="text" id="first-name" name='pengarang' required="required" class="form-control col-md-7 col-xs-12">
+    <input type="text" id="first-name" name='pengarang' required="required" value="<?=isset($edit->pengarang)?$edit->pengarang:''?>" class="form-control col-md-7 col-xs-12">
         </div>
     </div>
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tanggal Terbit
             </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-    <input type="date" id="first-name" name='tahun' required="required" class="form-control col-md-7 col-xs-12">
+    <input type="date" id="first-name" name='tahun' required="required" value="<?=isset($edit->tahun)?$edit->tahun:''?>" class="form-control col-md-7 col-xs-12">
         </div>
     </div>
     <input type="submit" value="Simpan" class='btn btn-primary'>
@@ -45,6 +46,7 @@
                     <th>Judul</th>
                     <th>Pengarang</th>
                     <th>Tahun</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,6 +57,9 @@ foreach($buku as $b){
         <td>$b[judul]</td>
         <td>$b[pengarang]</td>
         <td>$b[tahun]</td>
+        <td> 
+            <a alt='edit' href='".base_url()."index.php/main/index/master_buku?act=edit&id=$b[id]'><i class='fa fa-pencil'></i></a> 
+            <a alt='delete'><i class='fa fa-trash' ></i></a></td>
     </tr>";
 }
                 ?>
