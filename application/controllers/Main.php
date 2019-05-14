@@ -14,6 +14,9 @@ class Main extends CI_Controller {
 			$data['buku'] = $this->perpus_model->getAllBuku();
 			if(!empty($_GET['act'])){
 				switch($_GET['act']){
+					case 'del' : 
+						$this->perpus_model->deleteBuku($_GET['id']);
+						redirect(base_url().'index.php/main/index/master_buku');
 					case 'edit' :
 						$data['edit'] =  $this->perpus_model->getBuku($_GET['id']);
 						break;

@@ -24,5 +24,10 @@ class perpus_model extends CI_Model {
     {
         $this->db->query("update masterbuku set judul=?,pengarang=?,tahun=?where id=?",array($data['judul'],$data['pengarang'],$data['tahun'],$data['id']));
     }
+
+    public function deleteBuku($id)
+    {
+        $this->db->query("delete from masterbuku where id=?;",array($id));
+    }
 }
 ?>

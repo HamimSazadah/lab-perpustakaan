@@ -59,7 +59,7 @@ foreach($buku as $b){
         <td>$b[tahun]</td>
         <td> 
             <a alt='edit' href='".base_url()."index.php/main/index/master_buku?act=edit&id=$b[id]'><i class='fa fa-pencil'></i></a> 
-            <a alt='delete'><i class='fa fa-trash' ></i></a></td>
+            <a alt='delete' onclick=\"confirmDelete('$b[judul]',$b[id])\"><i class='fa fa-trash' ></i></a></td>
     </tr>";
 }
                 ?>
@@ -77,5 +77,13 @@ foreach($buku as $b){
     <script src="http://localhost/hzh/perpustakaan/assets/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="http://localhost/hzh/perpustakaan/assets/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script>
+
+function confirmDelete(judul,id){
+    r = confirm('Hapus buku '+judul+'?');
+    if (r == true) {
+        window.location = '<?=base_url()?>index.php/main/index/master_buku?act=del&id='+id;
+    }
+}
+
 $('#tblMasterBuku').DataTable();
 </script>
