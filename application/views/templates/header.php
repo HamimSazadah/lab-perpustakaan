@@ -56,6 +56,7 @@
                       <li><a href="index.html">Katalog Buku</a></li>
                       <li><a href="<?=base_url()?>index.php/main/index/master_buku">Master Buku</a></li>
                       <li><a href="index3.html">Peminjaman</a></li> 
+                      <li><a href="<?=base_url()?>index.php/main/logout">Logout</a></li> 
                     </ul>
                   </li>
                 </ul>

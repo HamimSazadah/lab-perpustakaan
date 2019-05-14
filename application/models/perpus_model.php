@@ -29,5 +29,12 @@ class perpus_model extends CI_Model {
     {
         $this->db->query("delete from masterbuku where id=?;",array($id));
     }
+
+    public function login($user,$pass){
+        $q = $this->db->query("Select * from users where email=? and password=md5(?) and is_active=1;",array($user,$pass)); // aman sql injection
+        //rentan sql injection
+        //$q = $this->db->query("Select * from users where email='$user' and password=md5('$pass') and is_active=1;");
+        return $q->row();
+    }
 }
 ?>
